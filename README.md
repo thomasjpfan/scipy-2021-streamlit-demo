@@ -1,9 +1,8 @@
 # Light Up Your Data with Streamlit! (Scipy 2021)
 
 - [Link to slides](https://thomasjpfan.github.io/scipy-2021-streamlit)
-- [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/thomasjpfan/scipy-2021-streamlit-demo/main/explain.py)
 
-This repo contains all the material used for my Scipy 2021 talk on Streamlit. The hosted version on Streamlit Sharing is a dashboard explaining a machine learning model's predictions using SHAP and Anchor explanations. The source of this dashboard is in `explain.py`.
+This repo contains all the material used for my Scipy 2021 talk on Streamlit. The hosted version on Streamlit Sharing is a dashboard explaining a machine learning model's predictions using SHAP and Anchor explanations. The source of this dashboard is in `explain.py`: [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/thomasjpfan/scipy-2021-streamlit-demo/main/explain.py)
 
 ## Installation instructions
 
