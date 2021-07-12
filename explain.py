@@ -61,7 +61,7 @@ user_df = pd.DataFrame(user_input, columns=feature_names)
 ##############################
 # Load Model & make prediction
 ##############################
-clf = joblib.load("penguin_clf.joblib")
+clf = joblib.load(media_dir / "penguin_clf.joblib")
 class_names = clf.classes_
 prediction = clf.predict(user_df)[0]
 
