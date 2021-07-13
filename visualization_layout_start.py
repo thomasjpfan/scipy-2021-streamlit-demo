@@ -11,11 +11,15 @@ numerical_features = [
     'culmen_length_mm', 'culmen_depth_mm',
     'flipper_length_mm', 'body_mass_g']
 
-feature = "body_mass_g"
+feature = st.radio("Select a feature", numerical_features)
 
 st.header("EDA for penguins dataset!")
 st.subheader(f"Slice of data for {feature}")
+
+# Dataframe
 st.write(penguins[['species', feature]])
+
+# Image
 st.image(str(media_dir / "gentoo.jpeg"))
 
 

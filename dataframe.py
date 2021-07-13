@@ -10,6 +10,3 @@ data = pd.DataFrame(
 st.title("DataFrames!")
 st.write("Show me the data")
 st.write(data)
-
-st.header("With some style 🕶")
-st.write(data.style.highlight_min(axis=0))

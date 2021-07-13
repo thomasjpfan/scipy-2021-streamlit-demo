@@ -13,15 +13,18 @@ penguins = pd.read_csv(penguins_path)
 st.write(penguins)
 
 
+#####################
 # Matplotlib + pandas
+#####################
 st.header("How many penguins of each species are in our dataset?")
 counts = penguins['species'].value_counts()
 
 count_ax = counts.plot.bar(color=['blue', 'red', 'green'])
 st.write(count_ax.figure)
 
-
+#########
 # Seaborn
+#########
 st.header("Can flipper length be used to distingushed the species?")
 
 flipper_fig = sns.displot(penguins,
@@ -31,6 +34,9 @@ flipper_fig = sns.displot(penguins,
 st.write(flipper_fig.fig)
 
 
+########
+# Plotly
+########
 st.header("Is the culmen length/depth useful for classifying species?")
 
 scat = px.scatter(penguins,
@@ -41,7 +47,9 @@ scat = px.scatter(penguins,
                   color='species')
 st.write(scat)
 
-
+########
+# Altair
+########
 st.header("How is the body mass for each species distributed?")
 hist = alt.Chart(penguins, width=600, height=200).mark_boxplot().encode(
     x="body_mass_g:Q",

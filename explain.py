@@ -15,8 +15,9 @@ st.set_page_config(initial_sidebar_state="expanded")
 ###########
 media_dir = Path("media")
 categorical_columns = ["island", "gender"]
-numerical_columns = ["culmen_length_mm", "culmen_depth_mm",
-                     "flipper_length_mm", "body_mass_g"]
+numerical_columns = [
+    "culmen_length_mm", "culmen_depth_mm",
+    "flipper_length_mm", "body_mass_g"]
 feature_names = categorical_columns + numerical_columns
 
 
@@ -104,22 +105,21 @@ componenets.html(f"<head>{shap.getjs()}</head>{shap_html_repr}", height=420)
 # Explain with Anchors
 ######################
 @st.cache
-def get_X_encoded():
-    return clf[:-1].transform(X)
+def get_anchor_explainer():
+    X_encoded = clf[:-1].transform(X)
+    return AnchorTabularExplainer(
+        class_names,
+        feature_names,
+        X_encoded,
+        categorical_names={
+            0: island_categories,
+            1: gender_categories,
+        },
+    )
 
 
+anchor_explainer = get_anchor_explainer()
 st.header("Anchors")
-X_encoded = get_X_encoded()
-
-anchor_explainer = AnchorTabularExplainer(
-    class_names,
-    feature_names,
-    X_encoded,
-    categorical_names={
-        0: island_categories,
-        1: gender_categories,
-    },
-)
 class_to_idx = {
     name: idx
     for idx, name in enumerate(clf[-1].classes_)
