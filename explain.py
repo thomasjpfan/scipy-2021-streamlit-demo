@@ -37,10 +37,11 @@ st.sidebar.subheader("Select your Penguin")
 
 island_categories = ["Biscoe", "Dream", "Torgersen"]
 gender_categories = ["FEMALE", "MALE"]
-island = st.sidebar.radio("Select an island",
-                          island_categories)
-gender = st.sidebar.selectbox("Select a gender",
-                              gender_categories)
+
+island = st.sidebar.radio(
+    "Select an island", island_categories)
+gender = st.sidebar.selectbox(
+    "Select a gender", gender_categories)
 culmen_length_mm = st.sidebar.number_input(
     "Select culmen length (mm)",
     min_value=32, max_value=60, value=44, step=5)
@@ -54,7 +55,8 @@ body_mass_g = st.sidebar.number_input(
     "Select body mass (g)",
     min_value=2700, max_value=6300, value=4050, step=500)
 
-user_input = [[island, gender, culmen_length_mm,
+user_input = [[island, gender,
+               culmen_length_mm,
                culmen_depth_mm, flipper_length_mm,
                body_mass_g]]
 user_df = pd.DataFrame(user_input, columns=feature_names)
@@ -65,7 +67,6 @@ user_df = pd.DataFrame(user_input, columns=feature_names)
 clf = joblib.load(media_dir / "penguin_clf.joblib")
 class_names = clf.classes_
 prediction = clf.predict(user_df)[0]
-
 st.sidebar.write(f"## Prediction: {prediction}")
 
 proba = clf.predict_proba(user_df)
