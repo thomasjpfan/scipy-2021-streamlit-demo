@@ -66,9 +66,6 @@ clf = joblib.load(media_dir / "penguin_clf.joblib")
 class_names = clf.classes_
 prediction = clf.predict(user_df)[0]
 
-#################
-# Make Prediction
-#################
 st.sidebar.write(f"## Prediction: {prediction}")
 
 proba = clf.predict_proba(user_df)

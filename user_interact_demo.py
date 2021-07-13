@@ -23,17 +23,6 @@ st.subheader(f"Radio: **{species}**")
 st.write("---")
 
 
-###########
-# selectbox
-###########
-st.header("`st.selectbox`")
-option = st.selectbox(
-    "What is your favorite pet?",
-    ("cat", "dog", "snake", "fish")
-)
-st.subheader(f"Selectbox: **{option}**")
-st.write("---")
-
 #############
 # multiselect
 #############

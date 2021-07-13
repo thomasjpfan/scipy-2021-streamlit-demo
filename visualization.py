@@ -22,6 +22,7 @@ counts = penguins['species'].value_counts()
 count_ax = counts.plot.bar(color=['blue', 'red', 'green'])
 st.write(count_ax.figure)
 
+
 #########
 # Seaborn
 #########
@@ -47,13 +48,14 @@ scat = px.scatter(penguins,
                   color='species')
 st.write(scat)
 
+
 ########
 # Altair
 ########
 st.header("How is the body mass for each species distributed?")
-hist = alt.Chart(penguins, width=600, height=200).mark_boxplot().encode(
-    x="body_mass_g:Q",
-    y="species:N",
-    color='species:N',
-)
+hist = (alt.Chart(penguins, width=600, height=200)
+        .mark_boxplot().encode(
+            x="body_mass_g:Q",
+            y="species:N",
+            color='species:N'))
 st.write(hist)
