@@ -19,7 +19,8 @@ st.write(penguins)
 st.header("How many penguins of each species are in our dataset?")
 counts = penguins['species'].value_counts()
 
-count_ax = counts.plot.bar(color=['blue', 'red', 'green'])
+count_ax = counts.plot.bar(
+    color=['blue', 'red', 'green'])
 st.write(count_ax.figure)
 
 
@@ -28,11 +29,10 @@ st.write(count_ax.figure)
 #########
 st.header("Can flipper length be used to distingushed the species?")
 
-flipper_fig = sns.displot(penguins,
-                          x='flipper_length_mm',
-                          hue='species',
-                          kind='kde')
-st.write(flipper_fig.fig)
+flipper_dist = sns.displot(
+    penguins, x='flipper_length_mm',
+    hue='species', kind='kde')
+st.write(flipper_dist.fig)
 
 
 ########

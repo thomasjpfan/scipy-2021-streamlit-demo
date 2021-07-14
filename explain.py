@@ -61,6 +61,7 @@ user_input = [[island, gender,
                body_mass_g]]
 user_df = pd.DataFrame(user_input, columns=feature_names)
 
+
 ##############################
 # Load Model & make prediction
 ##############################
